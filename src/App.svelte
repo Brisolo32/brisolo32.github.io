@@ -1,142 +1,61 @@
-<!-- svelte-ignore a11y-missing-attribute -->
+<script lang="ts">
+  import projects from "./projects"
+
+  function ageCalculator() {
+    // YY/MM/DD FTW
+    // Define the birth date as an object with year, month, and day properties.
+    let birthDate = {
+      year: 2009,
+      month: 1,
+      day: 8
+    }
+
+    // Get the current date and time in UTC.
+    let currentYear = new Date().getUTCFullYear()
+    let currentDay = new Date().getUTCDate()
+    let currentMonth = new Date().getUTCMonth()
+
+    // Calculate the age by subtracting the birth year from the current year.
+    let age = currentYear - birthDate.year
+
+    // If the birth month and day are later than the current month and day,
+    // subtract 1 from the age to adjust for incomplete year.
+    if (currentDay < birthDate.day && currentMonth < birthDate.month) age --
+
+    // Return the calculated age in years.
+    return age;
+  }
+</script>
 
 <main>
-  <div>
-    <h1 style="padding-top: 10px;">&#123 Brisolo32 &#125</h1>
-    <p>I do programming stuff</p>
+  <div class="top">
+    <h1>&#123 Brisolo32 &#125</h1>
+    <p>I do stuff</p>
   </div>
-  <div class="about">
-    <p>
-      Hi, im Davi &#40 Also known as Brisolo32 &#41, I am currently 14 years old
-      and I program a bit
-    </p>
-    <p>Here is some of the projects I have made:</p>
+  <div class="about-contact">
+    <div class="about">
+      <p>
+        Hey yall! Im Davi (AKA: Brisolo32), I'm {ageCalculator()} years old and learned coding at about 9. I know: TypeScript, Dart, Svelte, and a bit of Rust. Under this there will be some projects I've made and/or worked/colaborated!
+      </p>
+    </div>
+    <div class="contact">
+      <p id="contact-title">Contact:</p>
+      <ul>
+        <li>Twitter: @brisoli2</li>
+        <li>Reddit: u/OkTaien</li>
+        <li>Discord: Brisolo32#2968</li>
+        <li>Github: Brisolo32</li>
+      </ul>
+    </div>
   </div>
-  <div class="buttons">
-    <div class="swts" style="padding-bottom: 110px;">
-      <div style="float:left;">
-        <a href="https://github.com/Brisolo32/SwTS">
-          <img
-            src="https://raw.githubusercontent.com/Brisolo32/SwTS/main/swts.png"
-            width="130"
-            height="130"
-          />
-        </a>
+  <div class="projects">
+    {#each projects.projects as project}
+      <div class="card">
+        <div class="img"><img src={project.icon} alt=""></div>
+        <span>{project.name}</span>
+        <p>{project.desc}</p>
       </div>
-      <div class="desc">
-        <span>
-          <b
-            style="
-            font-size: 27px;
-            font-family:'Courier New', Courier, monospace;
-            margin-left: 15px;">SwTS (Sway Theme Switcher)</b
-          >
-        </span>
-        <br />
-        <span
-          style="
-          font-size: 17px;
-          font-family:'Courier New', Courier, monospace;
-          margin-left: 15px;
-          padding-top: 10px;"
-        >
-          A theme/config switcher for SwayWM and Waybar
-        </span>
-      </div>
-    </div>
-
-    <div class="ttc" style="padding-bottom: 110px;">
-      <div style="float:left;">
-        <a href="https://github.com/Brisolo32/TTC">
-          <img
-            src="https://raw.githubusercontent.com/Brisolo32/TTC/main/assets/TTC256.png"
-            width="130"
-            height="130"
-          />
-        </a>
-      </div>
-      <div class="desc">
-        <span>
-          <b
-            style="
-            font-size: 27px;
-            font-family:'Courier New', Courier, monospace;
-            margin-left: 15px;">TTC (Twitch Telegram Chat)</b
-          >
-        </span>
-        <br />
-        <span
-          style="
-          font-size: 17px;
-          font-family:'Courier New', Courier, monospace;
-          margin-left: 15px;
-          margin-top: 5px;"
-        >
-          A way to see your Twitch chat inside Telegram
-        </span>
-      </div>
-    </div>
-
-    <div class="ttc" style="padding-bottom: 110px;">
-      <div style="float:left;">
-        <a href="https://github.com/ProjectBlackPearl/project_black_pearl">
-          <img src="pbp.svg" width="130" height="130" />
-        </a>
-      </div>
-      <div class="desc">
-        <span>
-          <b
-            style="
-            font-size: 27px;
-            font-family:'Courier New', Courier, monospace;
-            margin-left: 15px; ">Project Black Pearl</b
-          >
-        </span>
-        <br />
-        <span
-          style="
-          font-size: 17px;
-          font-family:'Courier New', Courier, monospace;
-          margin-left: 15px;
-          margin-top: 5px;"
-        >
-          Unify your game sources in one place and aquire more of them, using
-          modules made by the community
-        </span>
-      </div>
-    </div>
-
-    <div class="gdc" style="">
-      <div style="float:left;">
-        <a href="https://brisolo32.github.io/gdc">
-          <img
-            src="https://raw.githubusercontent.com/Brisolo32/gdc/main/public/favicon.ico"
-            width="130"
-            height="130"
-          />
-        </a>
-      </div>
-      <div class="desc">
-        <span>
-          <b
-            style="
-            font-size: 27px;
-            font-family:'Courier New', Courier, monospace;
-            margin-left: 15px;">GDC (GD Song Checker)</b
-          >
-        </span>
-        <br />
-        <span
-          style="
-          font-size: 17px;
-          font-family:'Courier New', Courier, monospace;
-          margin-left: 15px;
-          margin-top: 5px;"
-        >
-          A tool to check if a NewGrounds song is usable on GD
-        </span>
-      </div>
-    </div>
+    {/each}
   </div>
 </main>
 
