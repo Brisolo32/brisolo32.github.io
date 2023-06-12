@@ -6,9 +6,9 @@ export default {
       icon: "gdc.png",
     },
     {
-      name: "Project Black Pearl",
-      desc: "Unify your game sources in one place and aquire more of them, using modules made by the community. ",
-      icon: "pbp.svg",
+      name: "Black Pearl Origin",
+      desc: "Black Pearl Origin (BPO) is a community-driven project that consolidates game sources, offers extensions, and a store system.",
+      icon: "bpo.svg",
     },
     {
       name: "SWTS (SWay Theme Switcher)",
