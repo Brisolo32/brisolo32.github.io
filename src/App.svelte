@@ -45,9 +45,7 @@
       <ul>
         <li>Twitter: @brisoli2</li>
         <li>
-          Mastodon: <a rel="me" href="https://mastodon.social/@brisolo32"
-            >@brisolo32</a
-          >
+          Mastodon: <a rel="me" href="https://protogen.social/@Argon">@Argon@protogen.social</a>
         </li>
         <li>Reddit: u/OkTaien</li>
         <li>Discord: Brisolo32#2968</li>
